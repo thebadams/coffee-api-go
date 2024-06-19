@@ -1,7 +1,13 @@
 package main
 
-import "fmt"
+import (
+	"log"
+
+	"github.com/thebadams/coffee-api-go/server"
+)
 
 func main() {
-	fmt.Print("Hello World ")
+	s := server.CreateServer()
+	log.Printf("Server Starting on PORT %s", s.Addr)
+	log.Fatal(s.ListenAndServe())
 }
