@@ -3,11 +3,12 @@ package server
 import "net/http"
 
 func CreateServer() *http.Server {
-	// mux := http.NewServeMux()
+	mux := http.NewServeMux()
 
-	// mux.Handle("GET /coffee", handler http.Handler)
+	mux.HandleFunc("GET /", hellohandler)
 	s := &http.Server{
-		Addr: ":3000",
+		Addr:    ":3000",
+		Handler: mux,
 	}
 	return s
 }
